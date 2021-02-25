@@ -9,8 +9,6 @@ from datetime import datetime
 import click
 import dateutil.parser
 
-import pprint
-
 class Globals(object):
     def __init__(self, statusfile=None):
         self.statusfile = statusfile
