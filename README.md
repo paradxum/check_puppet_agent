@@ -1,8 +1,13 @@
 # check_puppet_agent
-
-Usage: check_puppet_agent.sh [OPTIONS] COMMAND [ARGS]...
+Usage: check_puppet_agent.py [OPTIONS] COMMAND [ARGS]...
 
 This script parses the Puppet status file and monitors for errors
+
+## Installation
+Copy script to your nagios/icinga plugins directory (e.g. /usr/lib64/nagios/plugins )
+
+Install the requirements:\
+`pip3 install python-dateutil click NagiosCheckHelper pyyaml`
 
 ## Commands:
 success     - Test that the last run was successful\
