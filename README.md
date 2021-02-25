@@ -11,11 +11,11 @@ Install the requirements:\
 
 ## Commands:
 success     - Test that the last run was successful\
-lastRunTime - Number of seconds since last Run\
+lastRunTime - Number of seconds since last Run
 
 ## Global Options:
   -s, --statusFile TEXT  Puppet Status yaml file (default:/opt/puppetlabs/puppet/cache/state/last_run_report.yaml)\
-  --help                 Show this message and exit.\
+  --help                 Show this message and exit.
 
 ### Command: success
 This tests that the run was successfull or not. Will print errored log lines if failed.
