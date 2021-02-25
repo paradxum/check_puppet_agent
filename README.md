@@ -25,7 +25,7 @@ This tests the last run time of the puppet agent.
 
 ## Examples:
 ```
-check_puppet_agent -s last_run_report.yaml success\
-check_puppet_agent -s last_run_report.yaml lastRunTime -w 1920 -c 7200\
+check_puppet_agent -s last_run_report.yaml success
+check_puppet_agent -s last_run_report.yaml lastRunTime -w 1920 -c 7200
 ```
  
