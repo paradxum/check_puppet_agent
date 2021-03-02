@@ -2,9 +2,14 @@
 # Requirements:
 #  pip3 install python-dateutil click NagiosCheckHelper pyyaml
 
-from yaml import load, CLoader
 from NagiosCheckHelper import NagErrors, NagEval
 from datetime import datetime
+from yaml import load
+try:
+        from yaml import CLoader as Loader
+except ImportError:
+        from yaml import Loader
+
 
 import click
 import dateutil.parser
@@ -43,7 +48,7 @@ def lastRunTime(ctx, warning, critical):
     	f.readline()
     	fcontents = f.read()
 
-    sf = load(fcontents, Loader=CLoader)
+    sf = load(fcontents, Loader=Loader)
 
     lastrun = datetime.timestamp(dateutil.parser.parse(sf["time"]))
     now = datetime.timestamp(datetime.now())
@@ -61,7 +66,7 @@ def success(ctx):
     	f.readline()
     	fcontents = f.read()
 
-    sf = load(fcontents, Loader=CLoader)
+    sf = load(fcontents, Loader=Loader)
 
     neval.evalEnum(sf["status"], okValues=['changed', 'unchanged'], criticalValues=['failed'], prefixText="Status ")
     for log in sf["logs"]:
