@@ -1,0 +1,19 @@
+image: docker:20.10.7
+
+services:
+  - name: docker:20.10.7-dind
+    alias: docker
+    command: ["--tls=false"]
+
+stages:
+  - lint
+
+variables:
+  DOCKER_HOST: tcp://localhost:2375
+  DOCKER_TLS_CERTDIR: ""
+  DOCKER_DRIVER: overlay2
+
+python_lint:
+  stage: lint
+  script:
+    - docker run --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock mvantellingen/python-lint flake8 .
